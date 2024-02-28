@@ -1,16 +1,17 @@
 import re
+from tokenizer import Tokenizer
 literals={
- 1: "e",
- 2: "+",
- 3: "**",
- 4: "*",
- 5: "(",
- 6: ")",
+ "_1": re.escape("("),
+ "_2": re.escape(")"),
+ "_3": re.escape(","),
+ "_4": re.escape("*"),
 }
 regex={
- 7: re.compile("[0-9]+"),
- 8: re.compile("\\s+"),
+ "_0": "[a-zA-z][a-zA-Z0-9_]*",
+ "_5": "\\s+",
 }
 skip_values = [
-8,
+"_5",
 ]
+unknown = {"_unknown": ".+"}
+tokenizer = Tokenizer(literals, regex, unknown, skip_values)
