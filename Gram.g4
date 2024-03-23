@@ -12,8 +12,6 @@ rulee
 parserRulee : NT_ID inAttrs? ':=' prods ('|' prods)*;
 
 inAttrs : '<' NT_ID (',' NT_ID)* '>';
-param : paramName;
-paramName : NT_ID;
 
 prods: prod*;
 prod: NT_ID args? | T_ID | CODE;

@@ -1,0 +1,15 @@
+|> s
+
+s := t N O a C;
+t := N tt;
+tt := MUL tt |;
+a := b aa |;
+aa := COMMA a |;
+b := t N;
+
+N = '[a-zA-z][a-zA-Z0-9_]*';
+O = "(";
+C = ")";
+COMMA = ",";
+MUL = "*";
+WS => '\s+';

@@ -1,0 +1,30 @@
+|> expr
+
+expr := term exprs(term) { return exprs };
+exprs <acc> := PLUS term { next = acc + term } exprs(next) { return exprs} | MINUS term { next = acc - term } exprs(next) {return exprs} | {return acc} ;
+
+term := single terms(single) {return terms} ;
+terms <acc> := MUL single terms({acc * single}) {return terms} | DIV single terms({acc / single}) {return terms} | {return acc} ;
+
+tern := single terns(single) {return single};
+terns <acc> := QUESTION single {x = single} COLON single terns({x if acc else single}) {return terns} | {return acc};
+
+
+single := O expr C {return expr} | num {return num} | tern {return tern} ;
+
+num := NUM terns({int(NUM)}) {return terns} ;
+
+
+MINUS = "-";
+PLUS = "+";
+DMUL = "**";
+MUL = "*";
+O = "(";
+QUESTION = "?";
+M = "!";
+COLON = ":";
+DIV = "/";
+C = ")";
+NUM = '[0-9]+';
+
+WS => '\s+';

@@ -19,7 +19,7 @@ class Tokenizer:
     def tokenize(self, code):
         token_specification = list(self.literals.items()) + list(self.regex.items()) + list(self.unknown.items())
         tok_regex = '|'.join('(?P<%s>%s)' % pair for pair in token_specification)
-        print(tok_regex)
+        #print(tok_regex)
         line_num = 1
         line_start = 0
         for mo in re.finditer(tok_regex, code):

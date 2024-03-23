@@ -1,0 +1,7 @@
+|> s
+
+s := ONE s TWO | s ZERO |;
+
+ZERO = "0";
+ONE = "1";
+TWO = "2";

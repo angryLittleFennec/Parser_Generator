@@ -19,12 +19,18 @@ class Parser:
                 a = self.a()
                 C = self.skip("_2")
                 pass
+            case _:
+                raise Exception('Unexpected token type')
+
     def t(self, ):
         match self.token.type:
             case "_0":
                 N = self.skip("_0")
                 tt = self.tt()
                 pass
+            case _:
+                raise Exception('Unexpected token type')
+
     def tt(self, ):
         match self.token.type:
             case "_4":
@@ -33,6 +39,9 @@ class Parser:
                 pass
             case "_0":
                 pass
+            case _:
+                raise Exception('Unexpected token type')
+
     def a(self, ):
         match self.token.type:
             case "_0":
@@ -41,6 +50,9 @@ class Parser:
                 pass
             case "_2":
                 pass
+            case _:
+                raise Exception('Unexpected token type')
+
     def aa(self, ):
         match self.token.type:
             case "_3":
@@ -49,14 +61,18 @@ class Parser:
                 pass
             case "_2":
                 pass
+            case _:
+                raise Exception('Unexpected token type')
+
     def b(self, ):
         match self.token.type:
             case "_0":
                 t = self.t()
                 N = self.skip("_0")
                 pass
+            case _:
+                raise Exception('Unexpected token type')
 
     def parse(self):
         self.token = next(self.tokens)
         return self.s()
-
